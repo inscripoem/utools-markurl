@@ -2,9 +2,9 @@
 <img src="logo.png" height=100px/>
 </div>
 
-# <center>utools-markurl</center>
+<h1 align="center">utools-markurl</h1>
 
-<center>A utools plugin for <a href="https://github.com/YorkSu/markurl">markurl</a></center>
+<p align="center">A utools plugin for <a href="https://github.com/YorkSu/markurl">markurl</a></p>
 
 ## Usage
 1. Install [utools](https://u.tools/)
