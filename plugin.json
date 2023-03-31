@@ -1,0 +1,33 @@
+{
+    "main": "index.html",
+    "preload": "preload.js",
+	"logo": "logo.png",
+	"features": [
+		{
+		  "code": "url",
+		  "explain": "从网址获取Markdown",
+			"cmds":[
+                {
+                    "type": "regex",
+                    "label": "生成Markdown",
+                    "match": "/^(?:https?://)?(?:www\\.)?[^\\s\/]+\\.[^\\s\/]{2,}(?:\/[^\\s]*)*(?:\\?\\S*)?/gi",
+                    "minLength": 1,
+                    "maxLength": 1000
+                }
+            ]
+		},
+        {
+            "code": "title",
+            "explain": "从标题获取Markdown",
+            "cmds":[
+                {
+                    "type": "over",
+                    "label": "查询文献并生成Markdown",
+                    "exclude": "/^(?:https?://)?(?:www\\.)?[^\\s\/]+\\.[^\\s\/]{2,}(?:\/[^\\s]*)*(?:\\?\\S*)?/gi",
+                    "minLength": 1,
+                    "maxLength": 1000
+                }
+            ]
+        }
+	]
+}
