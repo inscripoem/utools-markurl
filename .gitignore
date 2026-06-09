@@ -1,0 +1,11 @@
+node_modules
+dist
+upx
+.vite
+*.log
+.DS_Store
+
+# tsup output: bundled preload bundle sits next to plugin.json so uTools can load it,
+# but it is a build artifact and must not be committed.
+/preload.js
+/preload.js.map
