@@ -29,6 +29,10 @@ declare global {
 
 const URL_RE = /^https?:\/\/\S+$/i
 
+function truncate(s: string, n: number): string {
+  return s.length > n ? `${s.slice(0, n - 1)}…` : s
+}
+
 async function resolveAndCopy(
   payload: string,
   opts: { searchByTitle?: boolean } = {},
@@ -40,8 +44,6 @@ async function resolveAndCopy(
     return
   }
 
-  utools.showNotification(opts.searchByTitle ? '正在搜索文献…' : '正在解析…')
-
   let info: Info | null = null
   try {
     if (opts.searchByTitle) {
@@ -51,7 +53,7 @@ async function resolveAndCopy(
     }
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e)
-    utools.showNotification(`解析失败: ${msg}`)
+    utools.showNotification(`解析失败: ${truncate(msg, 120)}`)
     utools.outPlugin()
     return
   }
@@ -64,7 +66,7 @@ async function resolveAndCopy(
 
   const md = toMarkdown(info)
   utools.copyText(md)
-  utools.showNotification(`已复制 Markdown:\n${md}`)
+  utools.showNotification('已复制 Markdown')
   utools.outPlugin()
 }
 
