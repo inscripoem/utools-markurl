@@ -24,6 +24,26 @@
 
 这是一个**无 UI 的模板插件**（`mode: "none"`）：选中文本或键入关键字，在 uTools 超级面板里点击对应操作，Markdown 引用就会自动复制到你的剪贴板——没有窗口、没有打扰。
 
+## 安装
+
+普通用户从 uTools 插件应用市场安装：
+
+1. 打开 uTools，按主超级面板快捷键（Windows 默认 `Alt+Space`，macOS 默认 `⌥+Space`）唤起搜索框。
+2. 输入 `插件应用市场`（或英文别名 `pluginmarket`），回车进入市场。
+3. 搜索 **MarkURL**，点击 **获取** 即可。
+
+也可以从本地 `.upx` 包安装（参见下方[构建 / 打包](#构建--打包)）：直接把 `.upx` 文件拖到 uTools 即可。
+
+## 使用方式
+
+三种触发方式：
+
+- **选中** 任意 `http(s)://…` URL → 唤起超级面板（Windows 默认 `Ctrl+鼠标拖选`，macOS 默认 `⌘+鼠标拖选`）→ 选择 **「URL 转 Markdown」** → 自动复制。
+- 在 uTools 搜索框 **键入** 关键字 `MarkURL` / `mu` / `URL转Markdown`，回车后粘贴 URL。
+- **论文检索**：输入 `arxiv` / `论文搜索` / `查文献`，然后输入论文标题（4–256 字符）—— 自动查询 CrossRef 并返回最匹配条目的 Markdown。
+
+成功后会出现一条简短的系统通知 `已复制 Markdown`。
+
 ## 技术栈
 
 - TypeScript 5.9 + tsup 8 (esbuild) —— 把 `preload/index.ts` 打成单个 CJS 文件
@@ -155,6 +175,10 @@ export const zhihuArticle = defineHandler({
 - **v0.1（当前）**：无 UI、关键字 + 选中触发、7 个内置 handler、输出 1:1 对齐 Python `markurl`。
 - **v0.2**：可选的设置 feature（独立 uTools feature + 一个迷你 HTML 页面），用于开关 handler / 自定义模板，通过 `utools.dbStorage` 持久化。增量增加，不动现有架构。
 - **v1.0+**：用户自定义 handler（基于 `utools.dbStorage`）+ 更完善的设置编辑器。
+
+## 更新日志
+
+发布说明详见 [CHANGELOG.md](./CHANGELOG.md)（遵循 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 格式）。
 
 ## License
 

@@ -24,6 +24,26 @@
 
 This is a **no-UI template plugin** (`mode: "none"`): you select text or type a keyword, pick the action in uTools' super-panel, and the Markdown reference is copied to your clipboard automatically.
 
+## Install
+
+For end users — install from the uTools plugin marketplace:
+
+1. Open uTools and press the keyboard shortcut to summon the search panel (default `Alt+Space` on Windows / `⌥+Space` on macOS).
+2. Type `插件应用市场` (or `pluginmarket`) and press Enter.
+3. Search for **MarkURL** and click **获取**.
+
+Or install from a local `.upx` package (see [Build / Package](#build--package) below) by dragging the file into uTools.
+
+## Usage
+
+Three ways to trigger:
+
+- **Select** any `http(s)://…` URL in any app → summon uTools super-panel (default `Ctrl+Click` selection on Windows / `⌘+drag` on macOS) → pick **「URL 转 Markdown」** → Markdown is copied.
+- **Type** keyword `MarkURL` / `mu` / `URL转Markdown` in the uTools search bar, then paste a URL.
+- **Paper lookup**: type `arxiv` / `论文搜索` / `查文献`, then enter a paper title (4–256 chars) — CrossRef will be queried and the top match returned as Markdown.
+
+A single concise toast `已复制 Markdown` confirms success.
+
 ## Tech stack
 
 - TypeScript 5.9 + tsup 8 (esbuild) — bundles `preload/index.ts` into a single CJS file
@@ -155,6 +175,10 @@ Then register in [src/handlers/index.ts](./src/handlers/index.ts) **before** the
 - **v0.1 (current)**: no UI, keyword + selection triggers, 7 built-in handlers, output aligned with the Python `markurl` format.
 - **v0.2**: optional settings feature (separate uTools feature with a tiny HTML page) for toggling handlers and customising templates, persisted via `utools.dbStorage`. Drop-in addition — no architectural change required.
 - **v1.0+**: user-defined handlers via `utools.dbStorage` + a richer settings editor.
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for release notes following the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 ## License
 

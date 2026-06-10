@@ -4,6 +4,28 @@
   "version": "0.1.0",
   "type": "commonjs",
   "description": "uTools plugin: turn any URL into a Markdown reference (no-UI template plugin)",
+  "keywords": [
+    "utools",
+    "utools-plugin",
+    "markdown",
+    "url",
+    "clipboard",
+    "arxiv",
+    "github",
+    "youtube",
+    "wikipedia",
+    "bilibili"
+  ],
+  "homepage": "https://github.com/inscripoem/utools-markurl#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inscripoem/utools-markurl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inscripoem/utools-markurl/issues"
+  },
+  "license": "MIT",
+  "author": "inscripoem",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup && node scripts/copy-plugin-assets.mjs",
