@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="./logo.png" alt="markurl logo" width="128" height="128" />
+  <img src="./logo.png" alt="MarkURL logo" width="128" height="128" />
 </p>
 
-<h1 align="center">utools-markurl</h1>
+<h1 align="center">MarkURL</h1>
 
 <p align="center">
   uTools 插件：把任意 URL 一键转成 Markdown 引用并复制到剪贴板。
@@ -34,7 +34,7 @@
 
 | code | 触发方式 | 行为 |
 | --- | --- | --- |
-| `url2md` | 关键字 `markurl` / `mu` / `URL转Markdown`，或**选中**任意 `http(s)://…` URL | 跑一遍 handler 链 → 复制 Python 风格的 Markdown |
+| `url2md` | 关键字 `MarkURL` / `mu` / `URL转Markdown`，或**选中**任意 `http(s)://…` URL | 跑一遍 handler 链 → 复制 Python 风格的 Markdown |
 | `arxiv2md` | 关键字 `arxiv` / `论文搜索` / `查文献`，或**选中**任意非 URL 文本（4–256 字符） | 按标题查 [CrossRef](https://api.crossref.org/) → 复制 Markdown |
 
 ### Handler 链（按顺序执行）

@@ -1,7 +1,7 @@
 {
   "logo": "logo.png",
   "preload": "preload.js",
-  "pluginName": "markurl",
+  "pluginName": "MarkURL",
   "description": "URL → Markdown 引用。在任意应用选中 URL，唤起超级面板选择「URL 转 Markdown」即可一键复制。",
   "author": "inscripoem",
   "homepage": "https://github.com/inscripoem/utools-markurl",
@@ -16,7 +16,7 @@
       "code": "url2md",
       "explain": "将 URL 解析为 Markdown 引用并复制",
       "cmds": [
-        "markurl",
+        "MarkURL",
         "mu",
         "URL转Markdown",
         {

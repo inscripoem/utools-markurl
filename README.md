@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="./logo.png" alt="markurl logo" width="128" height="128" />
+  <img src="./logo.png" alt="MarkURL logo" width="128" height="128" />
 </p>
 
-<h1 align="center">utools-markurl</h1>
+<h1 align="center">MarkURL</h1>
 
 <p align="center">
   uTools plugin: turn any URL into a Markdown reference.
@@ -34,7 +34,7 @@ This is a **no-UI template plugin** (`mode: "none"`): you select text or type a 
 
 | code | trigger | behaviour |
 | --- | --- | --- |
-| `url2md` | keyword `markurl` / `mu` / `URL转Markdown`, or **select** any `http(s)://…` URL | run the handler chain → copy Python-style Markdown |
+| `url2md` | keyword `MarkURL` / `mu` / `URL转Markdown`, or **select** any `http(s)://…` URL | run the handler chain → copy Python-style Markdown |
 | `arxiv2md` | keyword `arxiv` / `论文搜索` / `查文献`, or **select** any non-URL text (4–256 chars) | query [CrossRef](https://api.crossref.org/) by title → copy Markdown |
 
 ### Handler chain (executed in order)
