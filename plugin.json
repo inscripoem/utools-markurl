@@ -1,11 +1,10 @@
 {
-  "$schema": "https://res.u-tools.cn/schemas/plugin-json.json",
   "logo": "logo.png",
   "preload": "preload.js",
   "pluginName": "markurl",
   "description": "URL \u2192 Markdown \u5f15\u7528\u3002\u5728\u4efb\u610f\u5e94\u7528\u9009\u4e2d URL\uff0c\u5524\u8d77\u8d85\u7ea7\u9762\u677f\u9009\u62e9\u300cURL \u8f6c Markdown\u300d\u5373\u53ef\u4e00\u952e\u590d\u5236\u3002",
-  "author": "YorkSu",
-  "homepage": "https://github.com/YorkSu/markurl",
+  "author": "inscripoem",
+  "homepage": "https://github.com/inscripoem/utools-markurl",
   "version": "0.1.0",
   "platform": ["win32", "darwin", "linux"],
   "features": [

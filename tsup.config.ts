@@ -11,6 +11,5 @@ export default defineConfig({
   minify: false,
   treeshake: false,
   sourcemap: false,
-  noExternal: ['cheerio'],
   outExtension: () => ({ js: '.js' }),
 })

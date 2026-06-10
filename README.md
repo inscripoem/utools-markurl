@@ -1,6 +1,9 @@
-# markurl-utools
+# utools-markurl
 
-uTools plugin for [markurl](../README.md) — turn any URL into a Markdown reference.
+uTools plugin: turn any URL into a Markdown reference.
+
+> Sibling project: [inscripoem/markurl](https://github.com/inscripoem/markurl) — the original Python CLI.
+> Both share the same handler-chain design philosophy but have **independent codebases** suited to their runtime (Python/requests vs TS/native fetch).
 
 This is a **no-UI template plugin** (`mode: "none"`): you select text or type a
 keyword, pick the action in uTools' super-panel, and the Markdown reference is
@@ -9,7 +12,7 @@ copied to your clipboard automatically.
 ## Tech stack
 
 - TypeScript 5.9 + tsup 8 (esbuild) — bundles `preload/index.ts` into a single CJS file
-- cheerio 1.2 for HTML parsing (bundled, no runtime deps)
+- Zero runtime deps: native `fetch` + regex-based `<head>` parsing
 - pnpm 10 / Node 22+
 
 ## Features
@@ -22,7 +25,6 @@ copied to your clipboard automatically.
 ## Develop
 
 ```powershell
-cd utools-plugin
 pnpm install
 pnpm dev          # tsup --watch, emits ./preload.js next to plugin.json
 ```
@@ -55,7 +57,7 @@ recommendation):
 ```
 dist/
 ├── plugin.json       # manifest (no main, no development)
-├── preload.js        # ~1.3 MB, includes cheerio
+├── preload.js        # ~40 KB, zero runtime deps
 └── logo.png
 ```
 
@@ -64,9 +66,9 @@ Then in uTools: **开发者工具 → 项目 → 打包**, point at `dist/` as p
 ## Project layout
 
 ```
-utools-plugin/
+utools-markurl/
 ├── plugin.json                 # uTools manifest (mode: none template plugin)
-├── tsup.config.ts              # bundles preload, outDir: '.', noExternal: ['cheerio']
+├── tsup.config.ts              # bundles preload, outDir: '.'
 ├── tsconfig.json
 ├── logo.png                    # 256x256
 ├── preload.js                  # ⛔ build artifact, .gitignored
@@ -80,7 +82,7 @@ utools-plugin/
 │   │   └── format.ts
 │   └── handlers/
 │       ├── index.ts            # defaultManager.use(arxivPaper, doiPaper, webpage)
-│       ├── webpage.ts          # fallback: <title>/og:title via cheerio
+│       ├── webpage.ts          # fallback: regex extract og:title / <title> from <head>
 │       └── paper.ts            # arXiv (Atom) + DOI/CrossRef
 └── scripts/copy-plugin-assets.mjs  # stages root → dist/ for .upx packaging
 ```
@@ -96,7 +98,7 @@ export const zhihuArticle = defineHandler({
   match: (url) => /zhuanlan\.zhihu\.com\/p\/\d+/.test(url),
   async fetch(url, { fetchText }) {
     const html = await fetchText(url)
-    // ...cheerio.load + extract...
+    // ...regex extract from html...
     return { type: 'Article', title, author, url, source: '知乎' }
   },
 })
