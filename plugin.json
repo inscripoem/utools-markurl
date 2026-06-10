@@ -2,22 +2,26 @@
   "logo": "logo.png",
   "preload": "preload.js",
   "pluginName": "markurl",
-  "description": "URL \u2192 Markdown \u5f15\u7528\u3002\u5728\u4efb\u610f\u5e94\u7528\u9009\u4e2d URL\uff0c\u5524\u8d77\u8d85\u7ea7\u9762\u677f\u9009\u62e9\u300cURL \u8f6c Markdown\u300d\u5373\u53ef\u4e00\u952e\u590d\u5236\u3002",
+  "description": "URL → Markdown 引用。在任意应用选中 URL，唤起超级面板选择「URL 转 Markdown」即可一键复制。",
   "author": "inscripoem",
   "homepage": "https://github.com/inscripoem/utools-markurl",
   "version": "0.1.0",
-  "platform": ["win32", "darwin", "linux"],
+  "platform": [
+    "win32",
+    "darwin",
+    "linux"
+  ],
   "features": [
     {
       "code": "url2md",
-      "explain": "\u5c06 URL \u89e3\u6790\u4e3a Markdown \u5f15\u7528\u5e76\u590d\u5236",
+      "explain": "将 URL 解析为 Markdown 引用并复制",
       "cmds": [
         "markurl",
         "mu",
-        "URL\u8f6cMarkdown",
+        "URL转Markdown",
         {
           "type": "regex",
-          "label": "URL \u8f6c Markdown",
+          "label": "URL 转 Markdown",
           "match": "/^https?:\\/\\/\\S+$/i",
           "minLength": 7,
           "maxLength": 1024
@@ -26,14 +30,14 @@
     },
     {
       "code": "arxiv2md",
-      "explain": "\u6309\u6587\u732e\u6807\u9898\u67e5 CrossRef \u5e76\u751f\u6210 Markdown",
+      "explain": "按文献标题查 CrossRef 并生成 Markdown",
       "cmds": [
         "arxiv",
-        "\u8bba\u6587\u641c\u7d22",
-        "\u67e5\u6587\u732e",
+        "论文搜索",
+        "查文献",
         {
           "type": "over",
-          "label": "\u67e5\u8be2\u6587\u732e\u5e76\u751f\u6210 Markdown",
+          "label": "查询文献并生成 Markdown",
           "exclude": "/^https?:\\/\\//i",
           "minLength": 4,
           "maxLength": 256
