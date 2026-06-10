@@ -1,0 +1,8 @@
+# This directory holds README/preview screenshots for the uTools marketplace listing.
+#
+# Expected files (referenced from README.md / README.zh-CN.md):
+#   - 01-super-panel.png      ~1280x800, super-panel popup with the "URL 转 Markdown" entry
+#   - 02-notification.png     ~1280x800, the "已复制 Markdown" toast after a successful copy
+#   - 03-keyword-trigger.png  ~1280x800, both features showing up after typing `MarkURL`
+#
+# Drop the PNGs into this folder and the README image tags will resolve automatically.
