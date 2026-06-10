@@ -50,8 +50,6 @@
 | --- | --- | --- |
 | ![super panel](./docs/screenshots/01-super-panel.png) | ![notification](./docs/screenshots/02-notification.png) | ![keyword](./docs/screenshots/03-keyword-trigger.png) |
 
-> _推荐截图尺寸 1280×800 PNG。同一组三张图也用于 uTools 应用市场的发布页。_
-
 ## 技术栈
 
 - TypeScript 5.9 + tsup 8 (esbuild) —— 把 `preload/index.ts` 打成单个 CJS 文件

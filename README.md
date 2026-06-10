@@ -50,8 +50,6 @@ A single concise toast `已复制 Markdown` confirms success.
 | --- | --- | --- |
 | ![super panel](./docs/screenshots/01-super-panel.png) | ![notification](./docs/screenshots/02-notification.png) | ![keyword](./docs/screenshots/03-keyword-trigger.png) |
 
-> _Recommended capture size: 1280×800 PNG. The same three files are also used on the uTools marketplace listing._
-
 ## Tech stack
 
 - TypeScript 5.9 + tsup 8 (esbuild) — bundles `preload/index.ts` into a single CJS file
