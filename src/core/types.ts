@@ -1,13 +1,14 @@
 export type InfoType =
-  | 'Webpage'
+  | 'Page'
   | 'Paper'
   | 'Video'
   | 'Article'
-  | 'Repository'
-  | 'Wiki'
+  | 'Repo'
+  | 'Knowledge'
   | 'Book'
   | 'Movie'
-  | 'Blog'
+  | 'Review'
+  | 'Discussion'
 
 export interface Info {
   type: InfoType

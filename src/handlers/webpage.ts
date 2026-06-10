@@ -48,10 +48,17 @@ export const webpage = defineHandler({
   async fetch(url, { fetchText }) {
     const html = await fetchText(url)
     const title = extractTitle(html) ?? url
+    let source: string | undefined
+    try {
+      source = new URL(url).hostname.replace(/^www\./, '')
+    } catch {
+      source = undefined
+    }
     return {
-      type: 'Webpage',
+      type: 'Page',
       title,
       url,
+      source,
     }
   },
 })
