@@ -73,7 +73,8 @@
 | 4 | `video.youtube` | `youtube.com/watch` / `youtu.be/` / `embed` / `shorts` | YouTube oEmbed |
 | 5 | `wiki.wikipedia` | `*.wikipedia.org/wiki/`（所有语种） | Wikipedia REST API |
 | 6 | `video.bilibili` | `bilibili.com/video/BV…` / `b23.tv/…` | Bilibili 官方 JSON API（含短链 redirect） |
-| 7 | `webpage` | 任意 `http(s)://`（兜底） | 原生 `fetch` + 正则解析 `<head>` |
+| 7 | `csdn.article` | `blog.csdn.net/{user}/article/details/{id}` | 原生 `fetch` + 正则解析 `<title>` / `<span class="time">` |
+| 8 | `webpage` | 任意 `http(s)://`（兜底） | 原生 `fetch` + 正则解析 `<head>` |
 
 所有 handler 优先走官方 API ——不爬虫、不依赖任何第三方 SDK。
 
@@ -94,6 +95,7 @@
 **Paper:** [Mistral 7B](http://arxiv.org/abs/2310.06825v1), arXiv, Albert Q. Jiang, …, 2023-10-10
 **Video:** [Rick Astley - Never Gonna Give You Up …](…), YouTube, Rick Astley
 **Knowledge:** [机器学习](https://zh.wikipedia.org/wiki/机器学习), Wikipedia
+**Article:** [“AI再强也只是工具！”Linus再谈AI …](https://blog.csdn.net/csdnnews/article/details/161866599), CSDN, CSDN资讯, 2026-06-10
 **Page:** [Example Domain](https://example.com), example.com
 ```
 
@@ -153,6 +155,7 @@ utools-markurl/
 │       ├── youtube.ts          # YouTube oEmbed
 │       ├── wikipedia.ts        # Wikipedia REST API
 │       ├── bilibili.ts         # Bilibili JSON API + b23.tv 短链
+│       ├── csdn.ts             # CSDN 博文：<title> / <span class="time"> 正则
 │       └── webpage.ts          # 兜底：正则提取 og:title / <title>
 └── scripts/copy-plugin-assets.mjs  # 把根目录文件 stage 到 dist/ 用于打包
 ```
@@ -178,7 +181,7 @@ export const zhihuArticle = defineHandler({
 
 ## Roadmap
 
-- **v0.1（当前）**：无 UI、关键字 + 选中触发、7 个内置 handler、输出 1:1 对齐 Python `markurl`。
+- **v0.1（当前）**：无 UI、关键字 + 选中触发、8 个内置 handler、输出 1:1 对齐 Python `markurl`。
 - **v0.2**：可选的设置 feature（独立 uTools feature + 一个迷你 HTML 页面），用于开关 handler / 自定义模板，通过 `utools.dbStorage` 持久化。增量增加，不动现有架构。
 - **v1.0+**：用户自定义 handler（基于 `utools.dbStorage`）+ 更完善的设置编辑器。
 

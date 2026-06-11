@@ -73,7 +73,8 @@ A single concise toast `已复制 Markdown` confirms success.
 | 4 | `video.youtube` | `youtube.com/watch` / `youtu.be/` / `embed` / `shorts` | YouTube oEmbed |
 | 5 | `wiki.wikipedia` | `*.wikipedia.org/wiki/` (any locale) | Wikipedia REST API |
 | 6 | `video.bilibili` | `bilibili.com/video/BV…` / `b23.tv/…` | Bilibili JSON API (+ redirect resolve) |
-| 7 | `webpage` | any `http(s)://` (fallback) | native `fetch` + regex `<head>` parsing |
+| 7 | `csdn.article` | `blog.csdn.net/{user}/article/details/{id}` | native `fetch` + regex `<title>` / `<span class="time">` parsing |
+| 8 | `webpage` | any `http(s)://` (fallback) | native `fetch` + regex `<head>` parsing |
 
 All handlers use official APIs where possible — no scraping, no third-party SDKs.
 
@@ -94,6 +95,7 @@ Examples:
 **Paper:** [Mistral 7B](http://arxiv.org/abs/2310.06825v1), arXiv, Albert Q. Jiang, …, 2023-10-10
 **Video:** [Rick Astley - Never Gonna Give You Up …](…), YouTube, Rick Astley
 **Knowledge:** [Machine learning](https://en.wikipedia.org/wiki/Machine_learning), Wikipedia
+**Article:** [“AI再强也只是工具！”Linus再谈AI …](https://blog.csdn.net/csdnnews/article/details/161866599), CSDN, CSDN资讯, 2026-06-10
 **Page:** [Example Domain](https://example.com), example.com
 ```
 
@@ -153,6 +155,7 @@ utools-markurl/
 │       ├── youtube.ts          # YouTube oEmbed
 │       ├── wikipedia.ts        # Wikipedia REST API
 │       ├── bilibili.ts         # Bilibili JSON API + b23.tv resolve
+│       ├── csdn.ts             # CSDN blog post: <title> / <span class="time"> regex
 │       └── webpage.ts          # fallback: regex extract og:title / <title>
 └── scripts/copy-plugin-assets.mjs  # stages root → dist/ for .upx packaging
 ```
@@ -178,7 +181,7 @@ Then register in [src/handlers/index.ts](./src/handlers/index.ts) **before** the
 
 ## Roadmap
 
-- **v0.1 (current)**: no UI, keyword + selection triggers, 7 built-in handlers, output aligned with the Python `markurl` format.
+- **v0.1 (current)**: no UI, keyword + selection triggers, 8 built-in handlers, output aligned with the Python `markurl` format.
 - **v0.2**: optional settings feature (separate uTools feature with a tiny HTML page) for toggling handlers and customising templates, persisted via `utools.dbStorage`. Drop-in addition — no architectural change required.
 - **v1.0+**: user-defined handlers via `utools.dbStorage` + a richer settings editor.
 

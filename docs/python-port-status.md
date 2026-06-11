@@ -4,8 +4,8 @@
 > at [ruokee/markurl](https://github.com/ruokee/markurl). Maintained as a living checklist;
 > tick items off as future versions narrow the gap.
 
-**Audited at:** 2026-06-10 (v0.1.0 — first public release)
-**Overall handler coverage:** 7 / 11 = **64 %** (covers ~85 % of real-world usage)
+**Audited at:** 2026-06-11 (CSDN handler ported in `[Unreleased]`)
+**Overall handler coverage:** 8 / 11 = **73 %** (covers ~90 % of real-world usage)
 
 ---
 

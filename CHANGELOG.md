@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **CSDN article handler** (`csdn.article`) ported from the Python upstream's [`CSDNHandler`](https://github.com/ruokee/markurl/blob/master/markurl/handler/blog.py). Matches `blog.csdn.net/{user}/article/details/{id}` and extracts title, author display name and publish date via regex (zero new dependencies). Registered in the chain ahead of the `webpage` fallback.
+
+### Fixed
+
+- **`csdn.article` publish-date extraction is now correct on every page template.** The old single regex matched `class="time"` exactly (failing on the real `class="time blog-postTime"` compound) and, even when it accidentally hit, would prefer the *recommended-article* date inside `<div class="up-time">最新推荐文章于…</div>` over the real publish date. Replaced with a 4-tier fallback that reads from `data-time` first, then `<meta property="article:published_time">`, then the SSR-injected `"pubDate"` JSON field, and finally the visible `…于 YYYY-MM-DD 发布` text — verified on both a 2017 article (`shelldon/54144409`) and a 2026 article (`csdnnews/161866599`).
+
 ## [0.1.0] - 2026-06-10
 
 First public release on the uTools marketplace.
